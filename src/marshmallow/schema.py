@@ -609,6 +609,7 @@ class Schema(base.SchemaABC, metaclass=SchemaMeta):
             serializing a collection, otherwise `None`.
         :return: A dictionary of the deserialized data.
         """
+        print(f"** _deserializing: data {data}")
         index_errors = self.opts.index_errors
         index = index if index_errors else None
         if many:
