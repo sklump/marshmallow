@@ -8,6 +8,7 @@ import decimal
 import copy
 import inspect
 import json
+import traceback
 import typing
 import warnings
 
@@ -609,6 +610,10 @@ class Schema(base.SchemaABC, metaclass=SchemaMeta):
             serializing a collection, otherwise `None`.
         :return: A dictionary of the deserialized data.
         """
+        print('\n\n== == Deser: {self.__class__.__qualname__}; unk={unknown}')
+        print('.. {json.dumps(data, indent=4)}')
+        traceback.print_stack()
+
         index_errors = self.opts.index_errors
         index = index if index_errors else None
         if many:
